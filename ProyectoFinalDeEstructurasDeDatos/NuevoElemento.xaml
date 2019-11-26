@@ -9,8 +9,8 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="28,0,0,0" TextWrapping="Wrap" Text="Agregar Nuevo Elemento" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,45,0,0" TextWrapping="Wrap" Text="Tipo:" VerticalAlignment="Top" Width="30"/>
-        <RadioButton Content="Pelicula" HorizontalAlignment="Left" Margin="28,66,0,0" VerticalAlignment="Top" Width="69" Checked="RadioButton_Checked"/>
-        <RadioButton Content="Serie" HorizontalAlignment="Left" Margin="116,66,0,0" VerticalAlignment="Top" Width="53" Checked="RadioButton_Checked_1"/>
+        <RadioButton x:Name="rbpeli" Content="Pelicula" HorizontalAlignment="Left" Margin="28,66,0,0" VerticalAlignment="Top" Width="69" Checked="rbpeli_Checked"/>
+        <RadioButton x:Name="rbserie" Content="Serie" HorizontalAlignment="Left" Margin="116,66,0,0" VerticalAlignment="Top" Width="53" Checked="rbserie_Checked_1"/>
         <Grid x:Name="grdNuevoElemento" HorizontalAlignment="Left" Height="304" Margin="11,91,0,0" VerticalAlignment="Top" Width="527"/>
 
     </Grid>

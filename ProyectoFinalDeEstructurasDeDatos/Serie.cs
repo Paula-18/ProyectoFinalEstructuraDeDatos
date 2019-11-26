@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalDeEstructurasDeDatos
 {
-    class Serie
+    class Serie : Contenido
     {
-        public string Titulo { get; set; }
-        public int Año { get; set; }
-        public string Genero { get; set; }
-        public string Director { get; set; }
-        public string Sinopsis { get; set; }
-        public int Rating { get; set; }
 
-        public Serie(string titulo, int año)
+        public Serie() { }
+        public Serie(string tipo, string titulo,int temporadas, int año, string genero, string director, string sinopsis, int rating)
         {
+            this.Tipo = tipo;
             this.Titulo = titulo;
+            this.Temporadas = temporadas;
             this.Año = año;
+            this.Genero = genero;
+            this.Director = director;
+            this.Sinopsis = sinopsis;
+            this.Rating = rating;
         }
 
         public override string ToString()

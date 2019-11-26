@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:ProyectoFinalDeEstructurasDeDatos"
         mc:Ignorable="d"
         Title="MainWindow" Height="559.6" Width="863.2">
-    <Grid>
+    <Grid x:Name="Datos">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="457*"/>
+            <RowDefinition Height="74*"/>
+        </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="28,10,0,0" TextWrapping="Wrap" Text="Peliculas y Series" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="20"/>
         <ListView x:Name="lstCatalogo" HorizontalAlignment="Left" Height="382" Margin="28,47,0,0" VerticalAlignment="Top" Width="242" SelectionChanged="lstCatalogo_SelectionChanged">
             <ListView.View>
@@ -16,12 +20,23 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Grid x:Name="grdDatos" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="526" Margin="296,47,0,0"/>
+        <Grid x:Name="grdDatos" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="526" Margin="296,47,0,0" Grid.RowSpan="2">
+        </Grid>
         <Button x:Name="btnNuevoElemento" Content="Nuevo Elemento" HorizontalAlignment="Left" Margin="296,49,0,0" VerticalAlignment="Top" Width="105" Click="btnNuevoElemento_Click"/>
-        <Button x:Name="btnOrdenarAZ" Content="Ordenar A - Z" HorizontalAlignment="Left" Margin="29,450,0,0" VerticalAlignment="Top" Width="91"/>
-        <Button x:Name="btnOrdenarZA" Content="Ordenar Z - A" HorizontalAlignment="Left" Margin="29,486,0,0" VerticalAlignment="Top" Width="91"/>
-        <Button x:Name="btnAñoA" Content="▲  Año" HorizontalAlignment="Left" Margin="144,450,0,0" VerticalAlignment="Top" Width="91"/>
-        <Button x:Name="btnAñoB" Content="▼  Año" HorizontalAlignment="Left" Margin="144,486,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button x:Name="btnOrdenarAZ" Content="Ordenar A - Z" HorizontalAlignment="Left" Margin="29,450,0,0" VerticalAlignment="Top" Width="91" Click="btnOrdenarAZ_Click" Grid.RowSpan="2"/>
+        <Button x:Name="btnOrdenarZA" Content="Ordenar Z - A" HorizontalAlignment="Left" Margin="29,29.467,0,0" VerticalAlignment="Top" Width="91" Grid.Row="1" Click="btnOrdenarZA_Click"/>
+        <Button x:Name="btnAñoA" Content="▲  Año" HorizontalAlignment="Left" Margin="144,450,0,0" VerticalAlignment="Top" Width="91" Click="btnAñoA_Click" Grid.RowSpan="2"/>
+        <Button x:Name="btnAñoB" Content="▼  Año" HorizontalAlignment="Left" Margin="144,29.467,0,0" VerticalAlignment="Top" Width="91" Grid.Row="1" Click="btnAñoB_Click"/>
+        <Image x:Name="_5_estrellas" HorizontalAlignment="Left" Height="73" Margin="380,300,0,0" VerticalAlignment="Top" Width="314" Source="estrellas5.png" Visibility="Hidden"/>
+        <Image x:Name="_4_estrellas" HorizontalAlignment="Left" Height="73" Margin="380,300,0,0" VerticalAlignment="Top" Width="314" Source="estrellas4.png" Visibility="Hidden"/>
+        <Image x:Name="_3_estrellas" HorizontalAlignment="Left" Height="73" Margin="380,300,0,0" VerticalAlignment="Top" Width="314" Source="estrellas3.png" Visibility="Hidden"/>
+        <Image x:Name="_2_estrellas" HorizontalAlignment="Left" Height="73" Margin="380,300,0,0" VerticalAlignment="Top" Width="314" Source="estrellas2.png" Visibility="Hidden"/>
+        <Image x:Name="_1_estrella" HorizontalAlignment="Left" Height="73" Margin="380,300,0,0" VerticalAlignment="Top" Width="314" Source="estrellas1.png" Visibility="Hidden"/>
 
+        <Button x:Name="btnHabilitarEdicion" Content="Habilitar Edición " HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,377,0,0" Click="btnHabilitarEdicion_Click" Visibility="Hidden"/>
+        <Button x:Name="btnActualizarEdicion" Content="Actualizar Edición " HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,377,0,0" Visibility="Hidden" Click="btnActualizarEdicion_Click"/>
+        <Button x:Name="btnEliminarElemento" Content="Eliminar Elemento" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="464,377,0,0" Visibility="Hidden" Click="btnEliminarElemento_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="604,377,0,0" Visibility="Hidden" Click="btnCancelar_Click"/>
+        <Button x:Name="btnGuardarAgregarPelicula" Content="Guardar Elementos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,378,0,0" Visibility="Hidden"/>
     </Grid>
 </Window>

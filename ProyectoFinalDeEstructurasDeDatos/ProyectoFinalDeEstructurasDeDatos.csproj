@@ -61,12 +61,19 @@
     <Compile Include="AgregarNuevoElementoSerie.xaml.cs">
       <DependentUpon>AgregarNuevoElementoSerie.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contenido.cs" />
     <Compile Include="EditarElemento.xaml.cs">
       <DependentUpon>EditarElemento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarElementoSerie.xaml.cs">
+      <DependentUpon>EditarElementoSerie.xaml</DependentUpon>
     </Compile>
     <Compile Include="Serie.cs" />
     <Compile Include="VisualizarElemento.xaml.cs">
       <DependentUpon>VisualizarElemento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizarElementoSerie.xaml.cs">
+      <DependentUpon>VisualizarElementoSerie.xaml</DependentUpon>
     </Compile>
     <Page Include="AgregarNuevoElementoPelicula.xaml">
       <SubType>Designer</SubType>
@@ -77,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditarElemento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarElementoSerie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VisualizarElemento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualizarElementoSerie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,6 +145,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="estrellas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="estrellas5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="estrellas4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="estrellas3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="estrellas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="estrellas1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

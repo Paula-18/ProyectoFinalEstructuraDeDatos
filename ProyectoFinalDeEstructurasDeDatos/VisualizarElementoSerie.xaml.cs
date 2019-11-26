@@ -16,36 +16,24 @@ using System.Windows.Shapes;
 namespace ProyectoFinalDeEstructurasDeDatos
 {
     /// <summary>
-    /// Lógica de interacción para VisualizarElemento.xaml
+    /// Lógica de interacción para VisualizarElementoSerie.xaml
     /// </summary>
-    public partial class VisualizarElemento : UserControl
+    public partial class VisualizarElementoSerie : UserControl
     {
-        public VisualizarElemento()
+        public VisualizarElementoSerie()
         {
             InitializeComponent();
             txtboxTitulo.IsEnabled = false;
+            txtboxTemporadas.IsEnabled = false;
             txtboxAño.IsEnabled = false;
             comboboxGenero.IsEnabled = false;
             txtboxDirector.IsEnabled = false;
             txtboxSinopsis.IsEnabled = false;
-            //txtboxTitulo.Text = Contenido[lstCatalogo.SelectedIndex].Titulo;
-        }
-
-        private void btnHabilitarEdicion_Click(object sender, RoutedEventArgs e)
-        {
-            //grdDatos.Children.Add(new EditarElemento());
-            txtboxTitulo.IsEnabled = true;
-            txtboxAño.IsEnabled = true;
-            comboboxGenero.IsEnabled = true;
-            txtboxDirector.IsEnabled = true;
-            txtboxSinopsis.IsEnabled = true;
         }
 
         private void txtboxTitulo_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
-        }
 
-        
+        }
     }
 }

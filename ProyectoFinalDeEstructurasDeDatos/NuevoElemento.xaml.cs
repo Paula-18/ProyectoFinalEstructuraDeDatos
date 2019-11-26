@@ -25,14 +25,20 @@ namespace ProyectoFinalDeEstructurasDeDatos
             InitializeComponent();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void rbpeli_Checked(object sender, RoutedEventArgs e)
         {
+            grdNuevoElemento.Children.Clear();
+            //((MainWindow)(grdNuevoElemento.Children[0])).btnGuardarAgregarPelicula.Visibility = Visibility.Visible; Intento de visualizar el radioButton
             grdNuevoElemento.Children.Add(new AgregarNuevoElementoPelicula());
+            
+
         }
 
-        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        private void rbserie_Checked_1(object sender, RoutedEventArgs e)
         {
-            grdNuevoElemento.Children.Add(new AgregarNuevoElementoPelicula());
+            grdNuevoElemento.Children.Clear();
+            grdNuevoElemento.Children.Add(new AgregarNuevoElementoSerie());
+            
         }
     }
 }
