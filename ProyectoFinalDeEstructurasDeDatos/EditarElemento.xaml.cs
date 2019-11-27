@@ -24,5 +24,13 @@ namespace ProyectoFinalDeEstructurasDeDatos
         {
             InitializeComponent();
         }
+
+        private void txtboxRating_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            /*if(txtboxRating.Text == "5" || txtboxRating.Text == "4" || txtboxRating.Text == "3" || txtboxRating.Text == "2" || txtboxRating.Text == "1")
+            {
+                
+            }*/
+        }
     }
 }

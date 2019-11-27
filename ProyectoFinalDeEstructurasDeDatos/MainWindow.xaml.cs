@@ -35,13 +35,22 @@ namespace ProyectoFinalDeEstructurasDeDatos
             "conducir el avatar, un cuerpo creado con ADN alienígena y humano, gobernando su mente gracias a " +
             "avanzada tecnología por el planeta Pandora, con el fin de ser aceptado dentro de la tribu de los Na'vi " +
             "y recoger información y muestras de las distintas especies del planeta. ", 4);
-            Pelicula pelicula2 = new Pelicula("Pelicula","sffesf", 2019, "Comedia", "James Cameron",
-            "asdfghjklñasdfghjksdfghjkadsfghterrert ", 3);
-            Serie serie1 = new Serie("Serie","Nom",2, 2014, "Romance", "Yo", "asdfghjklñ", 2);
+            Pelicula pelicula2 = new Pelicula("Pelicula", "Child's Play", 2019, "Terror", "Lars Klevberg",
+            "Después de mudarse a una ciudad nueva, Karen le regala a su hijo Andy un muñeco que se convierte " +
+            "en el mejor amigo del niño. Lo que ellos desconocían es que el muñeco es un ser maligno que tiene vida " +
+            "propia. Andy deberá aliarse con otros niños vecinos para detener a esta diabólica criatura que está " +
+            "provocando muertes en la ciudad.", 3);
+            Serie serie1 = new Serie("Serie", "Los Simpson", 31, 1989, "Comedia", "Matt Groening", "Una familia que vive " +
+                "en la ciudad de Springfield cuya cabeza de familia es Homero, quien no es un hombre de familia típico pero " +
+                "que hace lo mejor para poder dirigir su hogar, aunque usualmente son ellos los que lo mandan.", 3);
+            Serie serie2 = new Serie("Serie", "La casa de papel", 2, 2017, "Drama", "Álex Pina", "Una banda organizada de ladrones " +
+                "tiene el objetivo de cometer el atraco del siglo en la Fábrica Nacional de Moneda y Timbre. Cinco meses de preparación " +
+                "quedarán reducidos a once días para poder llevar a cabo con éxito el gran golpe.", 4);
 
             info.Add(pelicula1);
             info.Add(pelicula2);
             info.Add(serie1);
+            info.Add(serie2);
 
             lstCatalogo.ItemsSource = info; 
 
@@ -172,24 +181,21 @@ namespace ProyectoFinalDeEstructurasDeDatos
 
         private void btnOrdenarAZ_Click(object sender, RoutedEventArgs e)
         {
-            /*int gap, i;
-            gap = info.Count / 2;
-
-            while (gap > 0)
+            bool swap;
+            do
             {
-                for (i = 0; i < info.Count; i++)
+                swap = false;
+                for (int index = 0; index < (info.Count - 1); index++)
                 {
-                    if (gap + i < info.Count && info[i].Titulo.ToCharArray() > info[gap + i].Titulo)
+                    if (string.Compare(info[index].Titulo, info[index + 1].Titulo) > 0)
                     {
-                        var temp = info[i];
-                        info[i] = info[gap + i];
-                        info[gap + i] = temp;
-
+                        var temp = info[index];
+                        info[index] = info[index + 1];
+                        info[index + 1] = temp;
+                        swap = true;
                     }
                 }
-
-                gap--;
-            }*/
+            } while (swap == true);
         }
 
         private void btnAñoA_Click(object sender, RoutedEventArgs e)
@@ -216,7 +222,21 @@ namespace ProyectoFinalDeEstructurasDeDatos
 
         private void btnOrdenarZA_Click(object sender, RoutedEventArgs e)
         {
-
+            bool swap;
+            do
+            {
+                swap = false;
+                for (int index = 0; index < (info.Count - 1); index++)
+                {
+                    if (string.Compare(info[index].Titulo, info[index + 1].Titulo) < 0)
+                    {
+                        var temp = info[index];
+                        info[index] = info[index + 1];
+                        info[index + 1] = temp;
+                        swap = true;
+                    }
+                }
+            } while (swap == true);
         }
 
         private void btnAñoB_Click(object sender, RoutedEventArgs e)
@@ -262,6 +282,8 @@ namespace ProyectoFinalDeEstructurasDeDatos
                 ((EditarElemento)(grdDatos.Children[0])).txtboxDirector.Text = info[lstCatalogo.SelectedIndex].Director;
                 ((EditarElemento)(grdDatos.Children[0])).txtboxSinopsis.Text = info[lstCatalogo.SelectedIndex].Sinopsis;
                 ((EditarElemento)(grdDatos.Children[0])).txtboxRating.Text = info[lstCatalogo.SelectedIndex].Rating.ToString();
+
+                
             }
             if (info[lstCatalogo.SelectedIndex].Tipo == "Serie" || info[lstCatalogo.SelectedIndex].Tipo == "serie") 
             {
@@ -291,72 +313,115 @@ namespace ProyectoFinalDeEstructurasDeDatos
         {
             if (info[lstCatalogo.SelectedIndex].Tipo == "Pelicula" || info[lstCatalogo.SelectedIndex].Tipo == "pelicula")
             {
+                if(((EditarElemento)(grdDatos.Children[0])).txtboxTitulo.Text == "" || ((EditarElemento)(grdDatos.Children[0])).txtboxAño.Text == ""
+                    || ((EditarElemento)(grdDatos.Children[0])).txtboxRating.Text == "" || ((EditarElemento)(grdDatos.Children[0])).txtboxDirector.Text == ""
+                    || ((EditarElemento)(grdDatos.Children[0])).txtboxSinopsis.Text == "")
+                {
+                    advertenciaDatos.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    grdDatos.Children.Add(new EditarElemento());
+                    var datos1 = ((EditarElemento)(grdDatos.Children[0]));
+                    var datos2 = info[lstCatalogo.SelectedIndex];
+                    var año = datos2.Año.ToString();
+                    var año2 = Convert.ToInt32(((EditarElemento)(grdDatos.Children[0])).txtboxAño.Text);
+                    info[lstCatalogo.SelectedIndex].Año = año2;
+                    var rating = datos2.Rating.ToString();
+                    var rating2 = Convert.ToInt32(((EditarElemento)(grdDatos.Children[0])).txtboxRating.Text);
+                    info[lstCatalogo.SelectedIndex].Rating = rating2;
 
-                //Correción del convert
-                grdDatos.Children.Add(new EditarElemento());
-                var datos1 = ((EditarElemento)(grdDatos.Children[0]));
-                var datos2 = info[lstCatalogo.SelectedIndex];
-                var año = datos2.Año.ToString();
-                var año2 = Convert.ToInt32(((EditarElemento)(grdDatos.Children[0])).txtboxAño.Text);
-                info[lstCatalogo.SelectedIndex].Año = año2;
-                var rating = datos2.Rating.ToString();
-                var rating2 = Convert.ToInt32(((EditarElemento)(grdDatos.Children[0])).txtboxRating.Text);
-                info[lstCatalogo.SelectedIndex].Rating = rating2;
+                    datos2.Titulo = datos1.txtboxTitulo.Text;
+                    //datos2.Genero = datos1.cboxItem.Content;
+                    datos2.Director = datos1.txtboxDirector.Text;
+                    datos2.Sinopsis = datos1.txtboxSinopsis.Text;
 
-                datos2.Titulo = datos1.txtboxTitulo.Text;
-                //datos2.Genero = datos1.cboxItem.Content;
-                datos2.Director = datos1.txtboxDirector.Text;
-                datos2.Sinopsis = datos1.txtboxSinopsis.Text;
+                    if (rating2 <= 5 && rating2 >= 0)
+                    {
+                        //Correción del convert
 
-                lstCatalogo.Items.Refresh();
-                grdDatos.Children.Clear();
-                btnActualizarEdicion.Visibility = Visibility.Hidden;
-                btnEliminarElemento.Visibility = Visibility.Hidden;
-                btnCancelar.Visibility = Visibility.Hidden;
-                btnHabilitarEdicion.Visibility = Visibility.Hidden;
-                ///////////////////////////////////////////////////
-                btnNuevoElemento.Visibility = Visibility.Visible;
-                btnOrdenarAZ.Visibility = Visibility.Visible;
-                btnOrdenarZA.Visibility = Visibility.Visible;
-                btnAñoA.Visibility = Visibility.Visible;
-                btnAñoB.Visibility = Visibility.Visible;
+                        lstCatalogo.Items.Refresh();
+                        grdDatos.Children.Clear();
+                        btnActualizarEdicion.Visibility = Visibility.Hidden;
+                        btnEliminarElemento.Visibility = Visibility.Hidden;
+                        btnCancelar.Visibility = Visibility.Hidden;
+                        btnHabilitarEdicion.Visibility = Visibility.Hidden;
+                        ///////////////////////////////////////////////////
+                        btnNuevoElemento.Visibility = Visibility.Visible;
+                        btnOrdenarAZ.Visibility = Visibility.Visible;
+                        btnOrdenarZA.Visibility = Visibility.Visible;
+                        btnAñoA.Visibility = Visibility.Visible;
+                        btnAñoB.Visibility = Visibility.Visible;
+                        advertenciaRating.Visibility = Visibility.Hidden;
+                        advertenciaDatos.Visibility = Visibility.Hidden;
+
+                    }
+                    else
+                    {
+                        advertenciaRating.Visibility = Visibility.Visible;
+                    }
+                }
+                
+              
             }
 
             if (info[lstCatalogo.SelectedIndex].Tipo == "Serie" || info[lstCatalogo.SelectedIndex].Tipo == "serie")
             {
-                //Correción del convert
-                grdDatos.Children.Add(new EditarElementoSerie());
-                var datos1 = ((EditarElementoSerie)(grdDatos.Children[0]));
-                var datos2 = info[lstCatalogo.SelectedIndex];
-                var año = datos2.Año.ToString();
-                var año2 = Convert.ToInt32(((EditarElementoSerie)(grdDatos.Children[0])).txtboxAño.Text);
-                info[lstCatalogo.SelectedIndex].Año = año2;
-                var rating = datos2.Rating.ToString();
-                var rating2 = Convert.ToInt32(((EditarElementoSerie)(grdDatos.Children[0])).txtboxRating.Text);
-                info[lstCatalogo.SelectedIndex].Rating = rating2;
-                var temporadas = datos2.Temporadas.ToString();
-                var temporadas2 = Convert.ToInt32(((EditarElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text);
-                info[lstCatalogo.SelectedIndex].Temporadas = temporadas2;
+                if(((EditarElementoSerie)(grdDatos.Children[0])).txtboxTitulo.Text == "" || ((EditarElementoSerie)(grdDatos.Children[0])).txtboxAño.Text == ""
+                    || ((EditarElementoSerie)(grdDatos.Children[0])).txtboxRating.Text == "" || ((EditarElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text == ""
+                    || ((EditarElementoSerie)(grdDatos.Children[0])).txtboxDirector.Text == "" || ((EditarElementoSerie)(grdDatos.Children[0])).txtboxSinopsis.Text == "")
+                {
+                    advertenciaDatos.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    //Correción del convert
+                    grdDatos.Children.Add(new EditarElementoSerie());
+                    var datos1 = ((EditarElementoSerie)(grdDatos.Children[0]));
+                    var datos2 = info[lstCatalogo.SelectedIndex];
+                    var año = datos2.Año.ToString();
+                    var año2 = Convert.ToInt32(((EditarElementoSerie)(grdDatos.Children[0])).txtboxAño.Text);
+                    info[lstCatalogo.SelectedIndex].Año = año2;
+                    var rating = datos2.Rating.ToString();
+                    var rating2 = Convert.ToInt32(((EditarElementoSerie)(grdDatos.Children[0])).txtboxRating.Text);
+                    info[lstCatalogo.SelectedIndex].Rating = rating2;
+                    var temporadas = datos2.Temporadas.ToString();
+                    var temporadas2 = Convert.ToInt32(((EditarElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text);
+                    info[lstCatalogo.SelectedIndex].Temporadas = temporadas2;
 
-                datos2.Titulo = datos1.txtboxTitulo.Text;
-                //datos2.Temporadas = datos1.txtboxTemporadas;
-                //datos2.Genero = datos1.cboxItem.Content;
-                datos2.Director = datos1.txtboxDirector.Text;
-                datos2.Sinopsis = datos1.txtboxSinopsis.Text;
+                    datos2.Titulo = datos1.txtboxTitulo.Text;
+                    //datos2.Temporadas = datos1.txtboxTemporadas;
+                    //datos2.Genero = datos1.cboxItem.Content;
+                    datos2.Director = datos1.txtboxDirector.Text;
+                    datos2.Sinopsis = datos1.txtboxSinopsis.Text;
 
-                lstCatalogo.Items.Refresh();
+                    if (rating2 <= 5 && rating2 >= 0)
+                    {
 
-                grdDatos.Children.Clear();
-                btnActualizarEdicion.Visibility = Visibility.Hidden;
-                btnEliminarElemento.Visibility = Visibility.Hidden;
-                btnCancelar.Visibility = Visibility.Hidden;
-                btnHabilitarEdicion.Visibility = Visibility.Hidden;
-                ///////////////////////////////////////////////////
-                btnNuevoElemento.Visibility = Visibility.Visible;
-                btnOrdenarAZ.Visibility = Visibility.Visible;
-                btnOrdenarZA.Visibility = Visibility.Visible;
-                btnAñoA.Visibility = Visibility.Visible;
-                btnAñoB.Visibility = Visibility.Visible;
+                        lstCatalogo.Items.Refresh();
+                        grdDatos.Children.Clear();
+                        btnActualizarEdicion.Visibility = Visibility.Hidden;
+                        btnEliminarElemento.Visibility = Visibility.Hidden;
+                        btnCancelar.Visibility = Visibility.Hidden;
+                        btnHabilitarEdicion.Visibility = Visibility.Hidden;
+                        ///////////////////////////////////////////////////
+                        btnNuevoElemento.Visibility = Visibility.Visible;
+                        btnOrdenarAZ.Visibility = Visibility.Visible;
+                        btnOrdenarZA.Visibility = Visibility.Visible;
+                        btnAñoA.Visibility = Visibility.Visible;
+                        btnAñoB.Visibility = Visibility.Visible;
+                        advertenciaRating.Visibility = Visibility.Hidden;
+                        advertenciaDatos.Visibility = Visibility.Hidden;
+
+                    }
+                    else
+                    {
+                        advertenciaRating.Visibility = Visibility.Visible;
+                    }
+                }
+                
+
+                    
             }
               
         }
@@ -477,61 +542,107 @@ namespace ProyectoFinalDeEstructurasDeDatos
 
         private void btnGuardarAgregarPelicula_Click_1(object sender, RoutedEventArgs e)
         {
-            btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
-            var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño1.Text;
-            int añoB = int.Parse(añoP);
-            var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating1.Text;
-            int ratingB = int.Parse(ratingP);
+
+            if (((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño1.Text == "" || ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating1.Text == "" ||
+               ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text == "" || ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxSinopsis.Text == "" ||
+               ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).comboboxGenero.Text == "" || ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxDirector.Text == "" )
+            {
+                advertenciaDatos.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
+                var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño1.Text;
+                int añoB = int.Parse(añoP);
+                var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating1.Text;
+                int ratingB = int.Parse(ratingP);
 
 
-            info.Add(new Pelicula(((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text, añoB, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxDirector.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxSinopsis.Text, ratingB));
+                info.Add(new Pelicula(((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text, añoB, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxDirector.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxSinopsis.Text, ratingB));
+
+                if (ratingB <= 5 && ratingB >= 0)
+                {
+                    //visibility
+                    rbpeli.Visibility = Visibility.Hidden;
+                    rbserie.Visibility = Visibility.Hidden;
+                    TituloNE.Visibility = Visibility.Hidden;
+                    TipoNE.Visibility = Visibility.Hidden;
+                    btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
+                    /////////////////////////////////////////////////////////
+                    btnNuevoElemento.Visibility = Visibility.Visible;
+                    btnOrdenarAZ.Visibility = Visibility.Visible;
+                    btnOrdenarZA.Visibility = Visibility.Visible;
+                    btnAñoA.Visibility = Visibility.Visible;
+                    btnAñoB.Visibility = Visibility.Visible;
+                    advertenciaRating.Visibility = Visibility.Hidden;
+                    advertenciaDatos.Visibility = Visibility.Hidden;
+                    btnCancelar.Visibility = Visibility.Hidden;
+
+                    lstCatalogo.Items.Refresh();
+                    grdDatos.Children.Clear();
+                }
+                else
+                {
+                    advertenciaRating.Visibility = Visibility.Visible;
+                }
+            }
             
-            //visibility
-            rbpeli.Visibility = Visibility.Hidden;
-            rbserie.Visibility = Visibility.Hidden;
-            TituloNE.Visibility = Visibility.Hidden;
-            TipoNE.Visibility = Visibility.Hidden;
-            btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
-            /////////////////////////////////////////////////////////
-            btnNuevoElemento.Visibility = Visibility.Visible;
-            btnOrdenarAZ.Visibility = Visibility.Visible;
-            btnOrdenarZA.Visibility = Visibility.Visible;
-            btnAñoA.Visibility = Visibility.Visible;
-            btnAñoB.Visibility = Visibility.Visible;
-
-            lstCatalogo.Items.Refresh();
-            grdDatos.Children.Clear();
+                
 
         }
 
         private void btnGuardarAgregarSerie_Click(object sender, RoutedEventArgs e)
         {
-            btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
-            var añoA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxAño.Text;
-            int añoC = int.Parse(añoA);
-            var ratingA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxRating.Text;
-            int ratingC = int.Parse(ratingA);
-            var temporadasA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text;
-            int temporasdasC = int.Parse(temporadasA);
+            if(((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxAño.Text == "" || ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxRating.Text == "" ||
+                ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text == "" || ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTitulo.Text == "" ||
+                ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).comboboxGenero.Text == "" || ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxProductor.Text == "" ||
+                ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxDescripción.Text == "")
+            {
+                advertenciaDatos.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
+                var añoA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxAño.Text;
+                int añoC = int.Parse(añoA);
+                var ratingA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxRating.Text;
+                int ratingC = int.Parse(ratingA);
+                var temporadasA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text;
+                int temporasdasC = int.Parse(temporadasA);
 
 
-            info.Add(new Serie(((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTitulo.Text,temporasdasC, añoC, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxProductor.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxDescripción.Text, ratingC));
+                info.Add(new Serie(((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTitulo.Text, temporasdasC, añoC, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxProductor.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxDescripción.Text, ratingC));
+
+                if (ratingC <= 5 && ratingC >= 0)
+                {
+                    //visibility
+                    rbpeli.Visibility = Visibility.Hidden;
+                    rbserie.Visibility = Visibility.Hidden;
+                    TituloNE.Visibility = Visibility.Hidden;
+                    TipoNE.Visibility = Visibility.Hidden;
+                    btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
+                    /////////////////////////////////////////////////////////
+                    btnNuevoElemento.Visibility = Visibility.Visible;
+                    btnOrdenarAZ.Visibility = Visibility.Visible;
+                    btnOrdenarZA.Visibility = Visibility.Visible;
+                    btnAñoA.Visibility = Visibility.Visible;
+                    btnAñoB.Visibility = Visibility.Visible;
+                    advertenciaRating.Visibility = Visibility.Hidden;
+                    advertenciaDatos.Visibility = Visibility.Hidden;
+                    btnCancelar.Visibility = Visibility.Hidden;
+
+                    lstCatalogo.Items.Refresh();
+                    grdDatos.Children.Clear();
+                }
+                else
+                {
+                    advertenciaRating.Visibility = Visibility.Visible;
+                }
+            }
+
             
-            //visibility
-            rbpeli.Visibility = Visibility.Hidden;
-            rbserie.Visibility = Visibility.Hidden;
-            TituloNE.Visibility = Visibility.Hidden;
-            TipoNE.Visibility = Visibility.Hidden;
-            btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
-            /////////////////////////////////////////////////////////
-            btnNuevoElemento.Visibility = Visibility.Visible;
-            btnOrdenarAZ.Visibility = Visibility.Visible;
-            btnOrdenarZA.Visibility = Visibility.Visible;
-            btnAñoA.Visibility = Visibility.Visible;
-            btnAñoB.Visibility = Visibility.Visible;
 
-            lstCatalogo.Items.Refresh();
-            grdDatos.Children.Clear();
+               
         }
     }
 }

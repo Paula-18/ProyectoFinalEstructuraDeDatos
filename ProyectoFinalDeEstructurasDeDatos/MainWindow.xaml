@@ -43,5 +43,7 @@
         <RadioButton x:Name="rbpeli" Content="Pelicula" HorizontalAlignment="Left" Margin="295,84,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden" Checked="rbpeli_Checked"/>
         <RadioButton x:Name="rbserie" Content="Serie" HorizontalAlignment="Left" Margin="383,84,0,0" VerticalAlignment="Top" Width="53" Visibility="Hidden" Checked="rbserie_Checked"/>
         <Button x:Name="btnGuardarAgregarSerie" Content="Guardar Elementos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,378,0,0" Visibility="Hidden" Click="btnGuardarAgregarSerie_Click"/>
+        <TextBlock x:Name="advertenciaRating" HorizontalAlignment="Left" Margin="306,29.2,0,0" TextWrapping="Wrap" Text="*El Rating debe ser del 0 al 5" VerticalAlignment="Top" Grid.Row="1" Visibility="Hidden"/>
+        <TextBlock x:Name="advertenciaDatos" HorizontalAlignment="Left" Margin="484,29.2,0,0" TextWrapping="Wrap" Text="*Deben llenarse todos los espacios" VerticalAlignment="Top" Grid.Row="1" Visibility="Hidden"/>
     </Grid>
 </Window>
