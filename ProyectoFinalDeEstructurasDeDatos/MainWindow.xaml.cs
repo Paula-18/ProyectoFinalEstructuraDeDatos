@@ -51,13 +51,17 @@ namespace ProyectoFinalDeEstructurasDeDatos
         private void btnNuevoElemento_Click(object sender, RoutedEventArgs e)
         {
             grdDatos.Children.Clear();
-            grdDatos.Children.Add(new NuevoElemento());
+            grdDatos.Children.Add(new AgregarNuevoElementoPelicula());
             btnNuevoElemento.Visibility = Visibility.Hidden;
             btnOrdenarAZ.Visibility = Visibility.Hidden;
             btnOrdenarZA.Visibility = Visibility.Hidden;
             btnAñoA.Visibility = Visibility.Hidden;
             btnAñoB.Visibility = Visibility.Hidden;
             btnGuardarAgregarPelicula.Visibility = Visibility.Visible;
+            rbpeli.Visibility = Visibility.Visible;
+            rbserie.Visibility = Visibility.Visible;
+            TituloNE.Visibility = Visibility.Visible;
+            TipoNE.Visibility = Visibility.Visible;
         }
 
         private void lstCatalogo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -387,6 +391,8 @@ namespace ProyectoFinalDeEstructurasDeDatos
             ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text = info[lstCatalogo.SelectedIndex].Titulo;
 
             lstCatalogo.Items.Refresh();*/
+
+            /*
             grdDatos.Children.Add(new AgregarNuevoElementoPelicula());
             if (lstCatalogo.SelectedIndex != -1)
             {
@@ -406,7 +412,7 @@ namespace ProyectoFinalDeEstructurasDeDatos
 
             lstCatalogo.Items.Refresh();
             grdDatos.Children.Clear();
-
+            */
         }
 
         private void btnEliminarElemento_Click(object sender, RoutedEventArgs e)
@@ -433,5 +439,22 @@ namespace ProyectoFinalDeEstructurasDeDatos
                 _5_estrellas.Visibility = Visibility.Hidden;
             }
         }
+
+        private void rbpeli_Checked(object sender, RoutedEventArgs e)
+        {
+            grdDatos.Children.Add(new AgregarNuevoElementoPelicula());
+            grdDatos.Children.Clear();
+            grdDatos.Children.Add(new AgregarNuevoElementoPelicula());
+        }
+
+        private void rbserie_Checked(object sender, RoutedEventArgs e)
+        {
+           
+            grdDatos.Children.Add(new AgregarNuevoElementoSerie());
+            grdDatos.Children.Clear();
+            grdDatos.Children.Add(new AgregarNuevoElementoSerie());
+
+        }
+    
     }
 }
