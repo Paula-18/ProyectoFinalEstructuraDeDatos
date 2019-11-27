@@ -29,7 +29,7 @@
         <Image HorizontalAlignment="Left" Height="73" Margin="103,250,0,0" VerticalAlignment="Top" Width="314" Source="estrellas2.png" Visibility="Hidden"/>
         <Image HorizontalAlignment="Left" Height="73" Margin="103,250,0,0" VerticalAlignment="Top" Width="314" Source="estrellas1.png" Visibility="Hidden"/>
         <TextBox x:Name="txtboxImg" HorizontalAlignment="Left" Height="23" Margin="79,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Visibility="Hidden"/>
-        <TextBlock HorizontalAlignment="Left" Margin="63,40,0,0" TextWrapping="Wrap" Text="Película" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="18"/>
+        <TextBlock x:Name="lblPelicula" HorizontalAlignment="Left" Margin="63,40,0,0" TextWrapping="Wrap" Text="Película" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="18"/>
 
     </Grid>
 </UserControl>

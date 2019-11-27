@@ -8,21 +8,26 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="28,84,0,0" TextWrapping="Wrap" Text="Titulo:" VerticalAlignment="Top" Width="38"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="78,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
+        <TextBox x:Name="txtboxTitulo" HorizontalAlignment="Left" Height="23" Margin="78,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
         <TextBlock HorizontalAlignment="Left" Margin="27,121,0,0" TextWrapping="Wrap" Text="Año:" VerticalAlignment="Top" Width="28"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="78,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="77"/>
+        <TextBox x:Name="txtboxAño" HorizontalAlignment="Left" Height="23" Margin="78,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="77"/>
         <TextBlock HorizontalAlignment="Left" Margin="178,121,0,0" TextWrapping="Wrap" Text="Género" VerticalAlignment="Top" Width="50"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="110,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
-        <ComboBox HorizontalAlignment="Left" Margin="248,119,0,0" VerticalAlignment="Top" Width="227"/>
+        <TextBox x:Name="txtboxTemporadas"  HorizontalAlignment="Left" Height="23" Margin="110,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+        <ComboBox x:Name="comboboxGenero"  HorizontalAlignment="Left" Margin="248,119,0,0" VerticalAlignment="Top" Width="227">
+            <ComboBoxItem>Romance</ComboBoxItem>
+            <ComboBoxItem>Comedia</ComboBoxItem>
+            <ComboBoxItem>Ciencia Ficción</ComboBoxItem>
+            <ComboBoxItem>Terror</ComboBoxItem>
+            <ComboBoxItem>Otro</ComboBoxItem>
+        </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="28,157,0,0" TextWrapping="Wrap" Text="Temporadas:" VerticalAlignment="Top" Width="78"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="256,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218"/>
+        <TextBox x:Name="txtboxProductor" HorizontalAlignment="Left" Height="23" Margin="256,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218"/>
         <TextBlock HorizontalAlignment="Left" Margin="178,157,0,0" TextWrapping="Wrap" Text="Productor:" VerticalAlignment="Top" Width="72"/>
-        <TextBox HorizontalAlignment="Left" Height="58" Margin="103,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="txtboxDescripción" HorizontalAlignment="Left" Height="58" Margin="103,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,191,0,0" TextWrapping="Wrap" Text="Descripción:" VerticalAlignment="Top" Width="74"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,263,0,0" TextWrapping="Wrap" Text="Rating: " VerticalAlignment="Top" Width="74"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="71,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36"/>
-        <Button x:Name="btnGuardarAgregar" Content="Guardar Elementos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="27,317,0,0"/>
-        <Button x:Name="btnCancelarAgregar" Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="167,317,0,0"/>
+        <TextBox x:Name="txtboxRating" HorizontalAlignment="Left" Height="23" Margin="71,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36"/>
+        <TextBox x:Name="txtboxTipo" HorizontalAlignment="Left" Height="23" Margin="256,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="77" Text="Serie" Visibility="Hidden"/>
 
     </Grid>
 </UserControl>

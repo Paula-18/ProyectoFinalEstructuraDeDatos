@@ -12,15 +12,20 @@
         <TextBlock HorizontalAlignment="Left" Margin="28,124,0,0" TextWrapping="Wrap" Text="Año:" VerticalAlignment="Top" Width="28"/>
         <TextBox x:Name="txtboxAño" HorizontalAlignment="Left" Height="23" Margin="80,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="77"/>
         <TextBlock HorizontalAlignment="Left" Margin="180,124,0,0" TextWrapping="Wrap" Text="Género" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="txtboxTemporada" HorizontalAlignment="Left" Height="23" Margin="112,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
-        <ComboBox x:Name="comboboxGenero" HorizontalAlignment="Left" Margin="249,122,0,0" VerticalAlignment="Top" Width="227"/>
-        <TextBlock HorizontalAlignment="Left" Margin="28,160,0,0" TextWrapping="Wrap" Text="Temporadas:" VerticalAlignment="Top" Width="78"/>
-        <TextBox x:Name="txtboxDirector" HorizontalAlignment="Left" Height="23" Margin="258,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218"/>
-        <TextBlock HorizontalAlignment="Left" Margin="180,160,0,0" TextWrapping="Wrap" Text="Director:" VerticalAlignment="Top" Width="72"/>
+        <ComboBox x:Name="comboboxGenero" HorizontalAlignment="Left" Margin="249,122,0,0" VerticalAlignment="Top" Width="227">
+            <ComboBoxItem>Romance</ComboBoxItem>
+            <ComboBoxItem>Comedia</ComboBoxItem>
+            <ComboBoxItem>Ciencia Ficción</ComboBoxItem>
+            <ComboBoxItem>Terror</ComboBoxItem>
+            <ComboBoxItem>Otro</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="txtboxDirector" HorizontalAlignment="Left" Height="23" Margin="80,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="396"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,160,0,0" TextWrapping="Wrap" Text="Director:" VerticalAlignment="Top" Width="109"/>
         <TextBox x:Name="txtboxSinopsis" HorizontalAlignment="Left" Height="58" Margin="104,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,194,0,0" TextWrapping="Wrap" Text="Descripción:" VerticalAlignment="Top" Width="74"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,266,0,0" TextWrapping="Wrap" Text="Rating: " VerticalAlignment="Top" Width="74"/>
         <TextBox x:Name="txtboxRating" HorizontalAlignment="Left" Height="23" Margin="73,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36"/>
+        <TextBox x:Name="txtboxTipo" HorizontalAlignment="Left" Height="23" Margin="231,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="77" Text="Pelicula" Visibility="Hidden"/>
 
     </Grid>
 </UserControl>

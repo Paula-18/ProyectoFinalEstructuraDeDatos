@@ -37,10 +37,11 @@
         <Button x:Name="btnActualizarEdicion" Content="Actualizar Edición " HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,377,0,0" Visibility="Hidden" Click="btnActualizarEdicion_Click"/>
         <Button x:Name="btnEliminarElemento" Content="Eliminar Elemento" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="464,377,0,0" Visibility="Hidden" Click="btnEliminarElemento_Click"/>
         <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="604,377,0,0" Visibility="Hidden" Click="btnCancelar_Click"/>
-        <Button x:Name="btnGuardarAgregarPelicula" Content="Guardar Elementos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,378,0,0" Visibility="Hidden"/>
+        <Button x:Name="btnGuardarAgregarPelicula" Content="Guardar Elementos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,378,0,0" Visibility="Hidden" Click="btnGuardarAgregarPelicula_Click_1"/>
         <TextBlock x:Name="TituloNE"  HorizontalAlignment="Left" Margin="295,18,0,0" TextWrapping="Wrap" Text="Agregar Nuevo Elemento" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="20" Visibility="Hidden"/>
         <TextBlock x:Name="TipoNE"  HorizontalAlignment="Left" Margin="295,63,0,0" TextWrapping="Wrap" Text="Tipo:" VerticalAlignment="Top" Width="30" Visibility="Hidden"/>
         <RadioButton x:Name="rbpeli" Content="Pelicula" HorizontalAlignment="Left" Margin="295,84,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden" Checked="rbpeli_Checked"/>
         <RadioButton x:Name="rbserie" Content="Serie" HorizontalAlignment="Left" Margin="383,84,0,0" VerticalAlignment="Top" Width="53" Visibility="Hidden" Checked="rbserie_Checked"/>
+        <Button x:Name="btnGuardarAgregarSerie" Content="Guardar Elementos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="324,378,0,0" Visibility="Hidden" Click="btnGuardarAgregarSerie_Click"/>
     </Grid>
 </Window>

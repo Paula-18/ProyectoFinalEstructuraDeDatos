@@ -406,13 +406,20 @@ namespace ProyectoFinalDeEstructurasDeDatos
                 info[lstCatalogo.SelectedIndex].Rating = rating2;
 
                 info[lstCatalogo.SelectedIndex].Titulo = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text;
-
-                
             }
 
             lstCatalogo.Items.Refresh();
             grdDatos.Children.Clear();
             */
+            var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño.Text;
+            int añoB = int.Parse(añoP);
+            var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating.Text;
+            int ratingB = int.Parse(ratingP);
+
+
+            info.Add(new Pelicula(((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text, añoB,((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxDirector.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxSinopsis.Text, ratingB));
+            lstCatalogo.Items.Refresh();
+            grdDatos.Children.Clear();
         }
 
         private void btnEliminarElemento_Click(object sender, RoutedEventArgs e)
@@ -455,6 +462,33 @@ namespace ProyectoFinalDeEstructurasDeDatos
             grdDatos.Children.Add(new AgregarNuevoElementoSerie());
 
         }
-    
+
+        private void btnGuardarAgregarPelicula_Click_1(object sender, RoutedEventArgs e)
+        {
+            var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño.Text;
+            int añoB = int.Parse(añoP);
+            var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating.Text;
+            int ratingB = int.Parse(ratingP);
+
+
+            info.Add(new Pelicula(((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text, añoB, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxDirector.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxSinopsis.Text, ratingB));
+            lstCatalogo.Items.Refresh();
+            grdDatos.Children.Clear();
+        }
+
+        private void btnGuardarAgregarSerie_Click(object sender, RoutedEventArgs e)
+        {
+            var añoP = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxAño.Text;
+            int añoB = int.Parse(añoP);
+            var ratingP = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxRating.Text;
+            int ratingB = int.Parse(ratingP);
+            var temporadasP = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text;
+            int temporasdasB = int.Parse(temporadasP);
+
+
+            info.Add(new Serie(((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTitulo.Text,temporasdasB, añoB, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxProductor.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxDescripción.Text, ratingB));
+            lstCatalogo.Items.Refresh();
+            grdDatos.Children.Clear();
+        }
     }
 }
