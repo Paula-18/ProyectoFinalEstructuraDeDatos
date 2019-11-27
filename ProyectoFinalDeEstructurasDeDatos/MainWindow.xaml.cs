@@ -105,12 +105,17 @@ namespace ProyectoFinalDeEstructurasDeDatos
                     ((VisualizarElemento)(grdDatos.Children[0])).txtboxSinopsis.Text = info[lstCatalogo.SelectedIndex].Sinopsis;
                     ((VisualizarElemento)(grdDatos.Children[0])).txtboxImg.Text = info[lstCatalogo.SelectedIndex].Rating.ToString();
 
+                    _0_estrellas.Visibility = Visibility.Hidden;
                     _1_estrella.Visibility = Visibility.Hidden;
                     _2_estrellas.Visibility = Visibility.Hidden;
                     _3_estrellas.Visibility = Visibility.Hidden;
                     _4_estrellas.Visibility = Visibility.Hidden;
                     _5_estrellas.Visibility = Visibility.Hidden;
 
+                    if (((VisualizarElemento)(grdDatos.Children[0])).txtboxImg.Text == "0")
+                    {
+                        _0_estrellas.Visibility = Visibility.Visible;
+                    }
                     if (((VisualizarElemento)(grdDatos.Children[0])).txtboxImg.Text == "1")
                     {
                         _1_estrella.Visibility = Visibility.Visible;
@@ -153,6 +158,10 @@ namespace ProyectoFinalDeEstructurasDeDatos
                     _4_estrellas.Visibility = Visibility.Hidden;
                     _5_estrellas.Visibility = Visibility.Hidden;
 
+                    if (((VisualizarElementoSerie)(grdDatos.Children[0])).txtboxImg.Text == "0")
+                    {
+                        _0_estrellas.Visibility = Visibility.Visible;
+                    }
                     if (((VisualizarElementoSerie)(grdDatos.Children[0])).txtboxImg.Text == "1")
                     {
                         _1_estrella.Visibility = Visibility.Visible;
@@ -266,6 +275,7 @@ namespace ProyectoFinalDeEstructurasDeDatos
             if (info[lstCatalogo.SelectedIndex].Tipo == "Pelicula" || info[lstCatalogo.SelectedIndex].Tipo == "pelicula")
             {
                 grdDatos.Children.Clear();
+                _0_estrellas.Visibility = Visibility.Hidden;
                 _1_estrella.Visibility = Visibility.Hidden;
                 _2_estrellas.Visibility = Visibility.Hidden;
                 _3_estrellas.Visibility = Visibility.Hidden;
@@ -332,7 +342,7 @@ namespace ProyectoFinalDeEstructurasDeDatos
                     info[lstCatalogo.SelectedIndex].Rating = rating2;
 
                     datos2.Titulo = datos1.txtboxTitulo.Text;
-                    //datos2.Genero = datos1.cboxItem.Content;
+                    datos2.Genero = datos1.comboboxGenero.Text;
                     datos2.Director = datos1.txtboxDirector.Text;
                     datos2.Sinopsis = datos1.txtboxSinopsis.Text;
 
@@ -391,7 +401,7 @@ namespace ProyectoFinalDeEstructurasDeDatos
 
                     datos2.Titulo = datos1.txtboxTitulo.Text;
                     //datos2.Temporadas = datos1.txtboxTemporadas;
-                    //datos2.Genero = datos1.cboxItem.Content;
+                    datos2.Genero = datos1.comboboxGenero.Text;
                     datos2.Director = datos1.txtboxDirector.Text;
                     datos2.Sinopsis = datos1.txtboxSinopsis.Text;
 
@@ -440,6 +450,7 @@ namespace ProyectoFinalDeEstructurasDeDatos
             btnAñoA.Visibility = Visibility.Visible;
             btnAñoB.Visibility = Visibility.Visible;
             //////////////////////////////////////////////////
+            _0_estrellas.Visibility = Visibility.Hidden;
             _1_estrella.Visibility = Visibility.Hidden;
             _2_estrellas.Visibility = Visibility.Hidden;
             _3_estrellas.Visibility = Visibility.Hidden;
@@ -512,6 +523,7 @@ namespace ProyectoFinalDeEstructurasDeDatos
                 btnAñoA.Visibility = Visibility.Visible;
                 btnAñoB.Visibility = Visibility.Visible;
                 //////////////////////////////////////////////////
+                _0_estrellas.Visibility = Visibility.Hidden;
                 _1_estrella.Visibility = Visibility.Hidden;
                 _2_estrellas.Visibility = Visibility.Hidden;
                 _3_estrellas.Visibility = Visibility.Hidden;

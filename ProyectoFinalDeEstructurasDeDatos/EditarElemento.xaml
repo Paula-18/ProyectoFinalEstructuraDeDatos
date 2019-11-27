@@ -16,6 +16,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="179,134,0,0" TextWrapping="Wrap" Text="Género" VerticalAlignment="Top" Width="50"/>
         <ComboBox x:Name="comboboxGenero" HorizontalAlignment="Left" Margin="249,132,0,0" VerticalAlignment="Top" Width="227">
             <ComboBoxItem x:Name="cboxItem"></ComboBoxItem>
+            <ComboBoxItem>Romance</ComboBoxItem>
+            <ComboBoxItem>Comedia</ComboBoxItem>
+            <ComboBoxItem>Ciencia Ficción</ComboBoxItem>
+            <ComboBoxItem>Terror</ComboBoxItem>
+            <ComboBoxItem>Otro</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="txtboxDirector" HorizontalAlignment="Left" Height="23" Margin="107,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369"/>
         <TextBlock HorizontalAlignment="Left" Margin="28,168,0,0" TextWrapping="Wrap" Text="Director:" VerticalAlignment="Top" Width="72"/>
