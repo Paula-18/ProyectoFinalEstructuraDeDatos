@@ -62,6 +62,7 @@ namespace ProyectoFinalDeEstructurasDeDatos
             rbserie.Visibility = Visibility.Visible;
             TituloNE.Visibility = Visibility.Visible;
             TipoNE.Visibility = Visibility.Visible;
+            btnCancelar.Visibility = Visibility.Visible;
         }
 
         private void lstCatalogo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -379,6 +380,13 @@ namespace ProyectoFinalDeEstructurasDeDatos
             _3_estrellas.Visibility = Visibility.Hidden;
             _4_estrellas.Visibility = Visibility.Hidden;
             _5_estrellas.Visibility = Visibility.Hidden;
+            /////////////////////////////////////////////////
+            btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
+            btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
+            rbpeli.Visibility = Visibility.Hidden;
+            rbserie.Visibility = Visibility.Hidden;
+            TituloNE.Visibility = Visibility.Hidden;
+            TipoNE.Visibility = Visibility.Hidden;
         }
 
         private void btnGuardarAgregarPelicula_Click(object sender, RoutedEventArgs e)
@@ -411,15 +419,15 @@ namespace ProyectoFinalDeEstructurasDeDatos
             lstCatalogo.Items.Refresh();
             grdDatos.Children.Clear();
             */
-            var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño.Text;
+            /*var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño1.Text;
             int añoB = int.Parse(añoP);
-            var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating.Text;
+            var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating1.Text;
             int ratingB = int.Parse(ratingP);
 
 
             info.Add(new Pelicula(((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text, añoB,((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxDirector.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxSinopsis.Text, ratingB));
             lstCatalogo.Items.Refresh();
-            grdDatos.Children.Clear();
+            grdDatos.Children.Clear();*/
         }
 
         private void btnEliminarElemento_Click(object sender, RoutedEventArgs e)
@@ -449,44 +457,79 @@ namespace ProyectoFinalDeEstructurasDeDatos
 
         private void rbpeli_Checked(object sender, RoutedEventArgs e)
         {
-            grdDatos.Children.Add(new AgregarNuevoElementoPelicula());
+            //grdDatos.Children.Add(new AgregarNuevoElementoPelicula());
             grdDatos.Children.Clear();
             grdDatos.Children.Add(new AgregarNuevoElementoPelicula());
+            btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
+            btnGuardarAgregarPelicula.Visibility = Visibility.Visible;
         }
 
         private void rbserie_Checked(object sender, RoutedEventArgs e)
         {
            
-            grdDatos.Children.Add(new AgregarNuevoElementoSerie());
+            //grdDatos.Children.Add(new AgregarNuevoElementoSerie());
             grdDatos.Children.Clear();
             grdDatos.Children.Add(new AgregarNuevoElementoSerie());
+            btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
+            btnGuardarAgregarSerie.Visibility = Visibility.Visible;
 
         }
 
         private void btnGuardarAgregarPelicula_Click_1(object sender, RoutedEventArgs e)
         {
-            var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño.Text;
+            btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
+            var añoP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxAño1.Text;
             int añoB = int.Parse(añoP);
-            var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating.Text;
+            var ratingP = ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxRating1.Text;
             int ratingB = int.Parse(ratingP);
 
 
             info.Add(new Pelicula(((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxTitulo.Text, añoB, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxDirector.Text, ((AgregarNuevoElementoPelicula)(grdDatos.Children[0])).txtboxSinopsis.Text, ratingB));
+            
+            //visibility
+            rbpeli.Visibility = Visibility.Hidden;
+            rbserie.Visibility = Visibility.Hidden;
+            TituloNE.Visibility = Visibility.Hidden;
+            TipoNE.Visibility = Visibility.Hidden;
+            btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
+            /////////////////////////////////////////////////////////
+            btnNuevoElemento.Visibility = Visibility.Visible;
+            btnOrdenarAZ.Visibility = Visibility.Visible;
+            btnOrdenarZA.Visibility = Visibility.Visible;
+            btnAñoA.Visibility = Visibility.Visible;
+            btnAñoB.Visibility = Visibility.Visible;
+
             lstCatalogo.Items.Refresh();
             grdDatos.Children.Clear();
+
         }
 
         private void btnGuardarAgregarSerie_Click(object sender, RoutedEventArgs e)
         {
-            var añoP = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxAño.Text;
-            int añoB = int.Parse(añoP);
-            var ratingP = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxRating.Text;
-            int ratingB = int.Parse(ratingP);
-            var temporadasP = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text;
-            int temporasdasB = int.Parse(temporadasP);
+            btnGuardarAgregarPelicula.Visibility = Visibility.Hidden;
+            var añoA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxAño.Text;
+            int añoC = int.Parse(añoA);
+            var ratingA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxRating.Text;
+            int ratingC = int.Parse(ratingA);
+            var temporadasA = ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTemporadas.Text;
+            int temporasdasC = int.Parse(temporadasA);
 
 
-            info.Add(new Serie(((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTitulo.Text,temporasdasB, añoB, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxProductor.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxDescripción.Text, ratingB));
+            info.Add(new Serie(((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTipo.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxTitulo.Text,temporasdasC, añoC, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).comboboxGenero.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxProductor.Text, ((AgregarNuevoElementoSerie)(grdDatos.Children[0])).txtboxDescripción.Text, ratingC));
+            
+            //visibility
+            rbpeli.Visibility = Visibility.Hidden;
+            rbserie.Visibility = Visibility.Hidden;
+            TituloNE.Visibility = Visibility.Hidden;
+            TipoNE.Visibility = Visibility.Hidden;
+            btnGuardarAgregarSerie.Visibility = Visibility.Hidden;
+            /////////////////////////////////////////////////////////
+            btnNuevoElemento.Visibility = Visibility.Visible;
+            btnOrdenarAZ.Visibility = Visibility.Visible;
+            btnOrdenarZA.Visibility = Visibility.Visible;
+            btnAñoA.Visibility = Visibility.Visible;
+            btnAñoB.Visibility = Visibility.Visible;
+
             lstCatalogo.Items.Refresh();
             grdDatos.Children.Clear();
         }
